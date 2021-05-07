@@ -1,0 +1,109 @@
+---
+title: "MGSC 310 Final Project"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+# As long as you are working in a Rstudio Project file, you shouldn't need to 'hard code' directories like this 
+# change to your own working directory
+# knitr::opts_knit$set(root.dir = 'C:/Users/hersh/Dropbox/Chapman/Teaching/MGSC_310/Fall_2019/problem_sets')
+# setwd('C:/Users/hersh/Dropbox/Chapman/Teaching/MGSC_310/Fall_2019/problem_sets')
+
+# set seed to your own favorite number
+set.seed(1818)
+options(width=70)
+options(scipen=99)
+
+
+# general rchunk code options
+
+# this sets text to small
+opts_chunk$set(tidy.opts=list(width.wrap=50),tidy=TRUE, size = "vsmall")  
+opts_chunk$set(message = FALSE,                                          
+               warning = FALSE,
+               # "caching" stores objects in code chunks and only rewrites if you change things
+               cache = TRUE,                               
+               # automatically downloads dependency files
+               autodep = TRUE,
+               # 
+               cache.comments = FALSE,
+               # 
+               collapse = TRUE,
+               fig.width = 5,  
+               fig.height = 4,
+               fig.align='center')
+```
+
+#Load in the Libraries
+```{r}
+library("readr")
+library("tidyverse")
+library("rsample")
+library('glmnet')
+library('glmnetUtils')
+library('forcats')
+library('broom')
+library('coefplot')
+library('ISLR')
+library('ggplot2')
+library('dplyr')
+library('tidyr')
+library('ggridges')
+library('gganimate')
+library('yardstick')
+library('plotROC')
+library('data.table')
+library(partykit)
+library(PerformanceAnalytics)
+library(rpart)       
+library(rpart.plot)  
+library('randomForest')
+library(visNetwork)
+library(sparkline)
+library('janitor')
+library('skimr')
+library(cluster)
+library('factoextra')
+library("magrittr")
+library(tibble)
+library(GGally)
+library(plotly)
+```
+
+```{r}
+Subscriber <- read.csv(here::here("datasets","SubscriberClean.csv"))
+Subscriber <- Subscriber %>% mutate(`Send.Count` = as.numeric(`Send.Count`),
+                                    `Open.Count`  = as.numeric(`Open.Count`),
+                                    `Click.Count`  = as.numeric(`Click.Count`),
+                                    `Unique.Open.Count` = as.numeric(`Unique.Open.Count`),
+                                    `Unique.Click.Count`  = as.numeric(`Unique.Click.Count`),
+                                    `Language` = as.factor(`Language`),
+                                    `Subscription.Type` = as.factor(`Subscription.Type`),
+                                    `Subscription.Event.Type` = as.factor(`Subscription.Event.Type`),
+                                    `Purchase.Store` = as.factor(`Purchase.Store`),
+                                    `Currency` = as.factor(`Currency`),
+                                    `Demo.User` = as.factor(`Demo.User`),
+                                    `Free.Trial.User` = as.factor(`Free.Trial.User`),
+                                    `Free.Trial.Start.Date` = as.factor(`Free.Trial.Start.Date`),
+                                    `Free.Trial.Expiration` = as.factor(`Free.Trial.Expiration`),
+                                    `Auto.Renew` = as.factor(`Auto.Renew`),
+                                    `Country` = as.factor(`Country`),
+                                    `User.Type` = as.factor(`User.Type`),
+                                    `Lead.Platform` = as.factor(`Lead.Platform`),
+                                    `Email.Subscriber` = as.factor(`Email.Subscriber`),
+                                    `Push.Notifications` = as.factor(`Push.Notifications`))
+```
+
+###Cluster model
+```{r}
+
+```
+
+
+
+
+
+
+
+
